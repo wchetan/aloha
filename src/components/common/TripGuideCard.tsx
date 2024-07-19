@@ -1,6 +1,5 @@
 import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import Outlined from '../button/Outlined';
 import {CONTACT_AVATAR} from '../../assets';
 
@@ -41,7 +40,7 @@ const styles = StyleSheet.create({
 
 const TripGuideCard = () => {
   return (
-    <TouchableOpacity style={styles.guideCardView}>
+    <View style={styles.guideCardView}>
       <View style={styles.guideCardInfo}>
         <View style={styles.guideCardPersonInfo}>
           <Text style={styles.guideCardPersonName}>Hadwin Malone</Text>
@@ -50,7 +49,7 @@ const TripGuideCard = () => {
         <Image source={CONTACT_AVATAR} style={styles.guideCardPersonImage} />
       </View>
       <Outlined style={styles.guideCardContactButton}>Contact</Outlined>
-    </TouchableOpacity>
+    </View>
   );
 };
 
