@@ -14,6 +14,7 @@ import COLORS from '../../theme/colors';
 
 import {SURFING, HONOLULU, MAUI, KAUAI} from '../../assets';
 import TripGuideCard from '../../components/common/TripGuideCard';
+import AlohaTitleText from '../../assets/svgs/AlohaTitleText';
 
 const styles = StyleSheet.create({
   tripCardContainer: {
@@ -84,12 +85,7 @@ const styles = StyleSheet.create({
   titleContainer: {
     alignItems: 'center',
   },
-  title: {
-    fontSize: 36,
 
-    fontFamily: 'IBMPlexMono-BoldItalic',
-    color: 'black',
-  },
   backgroundImage: {
     height: 450,
     justifyContent: 'center',
@@ -146,7 +142,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>Aloha</Text>
+        <AlohaTitleText />
       </View>
       <ScrollView
         style={{backgroundColor: COLORS.primarySurface}}

@@ -14,6 +14,7 @@ import COLORS from '../../theme/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {HAWAII_LANDING, HULA, SURFING, VOLCANOES} from '../../assets';
 import TripGuideCard from '../../components/common/TripGuideCard';
+import AlohaTitleText from '../../assets/svgs/AlohaTitleText';
 
 const styles = StyleSheet.create({
   activityTitleTab: {
@@ -46,12 +47,6 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     alignItems: 'center',
-  },
-  title: {
-    fontSize: 36,
-
-    fontFamily: 'IBMPlexMono-BoldItalic',
-    color: 'black',
   },
   backgroundImage: {
     height: 450,
@@ -118,7 +113,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>Aloha</Text>
+        <AlohaTitleText />
       </View>
       <ScrollView
         style={{backgroundColor: COLORS.primarySurface}}

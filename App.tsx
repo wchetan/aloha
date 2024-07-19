@@ -1,9 +1,6 @@
 import React from 'react';
-
 import {SafeAreaView, StatusBar} from 'react-native';
-
 import RootNavigation from './src/navigation/RootNavigation';
-import COLORS from './src/theme/colors';
 
 function App(): React.JSX.Element {
   return (
