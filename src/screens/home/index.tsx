@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 36,
-    fontStyle: 'italic',
-    fontFamily: 'IBMPlexMono-Bold',
+
+    fontFamily: 'IBMPlexMono-BoldItalic',
   },
   backgroundImage: {
     height: 450,
@@ -45,22 +45,22 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 46,
     textAlign: 'center',
-    fontWeight: '700',
+
     color: 'rgba(255, 255, 255, 0.6)',
     textShadowOffset: {width: 2, height: 2},
     textShadowRadius: 5,
     textShadowColor: 'black',
-    fontFamily: 'IBMPlexMono-Regular',
+    fontFamily: 'IBMPlexMono-Bold',
   },
   hawaiiText: {
     fontSize: 46,
     textAlign: 'center',
-    fontWeight: '700',
+
     color: 'rgba(255, 255, 255, 0.75)',
     textShadowOffset: {width: 2, height: 2},
     textShadowRadius: 5,
     textShadowColor: 'black',
-    fontFamily: 'IBMPlexMono-Regular',
+    fontFamily: 'IBMPlexMono-Bold',
   },
   highlightsContainer: {
     backgroundColor: COLORS.primarySurface,
@@ -106,7 +106,7 @@ const Home = () => {
         style={{backgroundColor: COLORS.primarySurface}}
         contentContainerStyle={{
           // gap: 16,
-          paddingBottom: 60,
+          paddingBottom: 100,
         }}>
         <View style={{backgroundColor: 'white'}}>
           <ImageBackground

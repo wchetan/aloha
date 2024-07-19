@@ -38,22 +38,22 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 46,
     textAlign: 'center',
-    fontWeight: '700',
+
     color: 'rgba(255, 255, 255, 0.6)',
     textShadowOffset: {width: 2, height: 2},
     textShadowRadius: 5,
     textShadowColor: 'black',
-    fontFamily: 'IBMPlexMono-Regular',
+    fontFamily: 'IBMPlexMono-Bold',
   },
   hawaiiText: {
     fontSize: 46,
     textAlign: 'center',
-    fontWeight: '700',
+
     color: 'rgba(255, 255, 255, 0.75)',
     textShadowOffset: {width: 2, height: 2},
     textShadowRadius: 5,
     textShadowColor: 'black',
-    fontFamily: 'IBMPlexMono-Regular',
+    fontFamily: 'IBMPlexMono-Bold',
   },
   highlightsContainer: {
     backgroundColor: COLORS.primarySurface,

@@ -25,7 +25,7 @@ const Icon = ({children}: TouchableOpacityProps) => {
         style={{
           color: 'white',
           fontSize: 16,
-          fontWeight: '700',
+
           letterSpacing: 0.125,
         }}>
         {children}

@@ -22,7 +22,7 @@ const Outlined = ({children, ...rest}: TouchableOpacityProps) => {
         style={{
           color: COLORS.primary,
           fontSize: 16,
-          fontWeight: '700',
+
           letterSpacing: 0.125,
           fontFamily: 'IBMPlexMono-Bold',
         }}>

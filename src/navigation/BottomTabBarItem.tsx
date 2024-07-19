@@ -89,7 +89,7 @@ const BottomTabBarItem = ({
             <Text
               style={{
                 color: isFocused ? COLORS.primary : 'black',
-                fontWeight: '600',
+
                 fontFamily: isFocused
                   ? 'IBMPlexMono-Bold'
                   : 'IBMPlexMono-Medium',
