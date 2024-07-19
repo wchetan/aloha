@@ -8,6 +8,10 @@ const dummyImageUrl =
   'https://images.pexels.com/photos/4319778/pexels-photo-4319778.jpeg?auto=compress&cs=tinysrgb&w=600';
 
 const styles = StyleSheet.create({
+  cardDescription: {
+    gap: 16,
+    flex: 0.5,
+  },
   cardContainer: {
     borderRadius: 8,
     backgroundColor: 'white',
@@ -72,7 +76,7 @@ const HighlightCard = ({
     <View style={[styles.cardContainer, {width: eightyPercentWidth}]}>
       <Image source={image} style={styles.image} />
       <View style={styles.contentContainer}>
-        <View style={{gap: 16, flex: 0.5}}>
+        <View style={styles.cardDescription}>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.description}>{description}</Text>
         </View>

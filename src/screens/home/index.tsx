@@ -176,7 +176,7 @@ const Home = () => {
 
           <View style={styles.highlightsContainer}>
             <View style={styles.activitiesContainer}>
-              <Text style={styles.activitiesTitle}>Activities</Text>
+              <Text style={styles.activitiesTitle}>Categories</Text>
               <View style={styles.activitiesView}>
                 {[
                   'Adventure',

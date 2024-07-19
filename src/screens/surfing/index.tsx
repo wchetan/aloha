@@ -16,6 +16,10 @@ import {SURFING, HONOLULU, MAUI, KAUAI} from '../../assets';
 import TripGuideCard from '../../components/common/TripGuideCard';
 
 const styles = StyleSheet.create({
+  tripCardContainer: {
+    gap: 8,
+    padding: 16,
+  },
   textBodyDescription: {
     fontFamily: 'IBMPlexMono-Regular',
     fontSize: 14,
@@ -200,7 +204,7 @@ const Home = () => {
           <View style={styles.highlightsContainer}>
             <View style={styles.activitiesContainer}>
               <Text style={styles.activitiesTitle}>Travel Guide</Text>
-              <View style={{gap: 8, padding: 16}}>
+              <View style={styles.tripCardContainer}>
                 <TripGuideCard />
               </View>
             </View>
