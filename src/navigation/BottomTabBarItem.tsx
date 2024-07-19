@@ -1,29 +1,28 @@
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
-//images
-import {
-  HomeTabIconActive,
-  HomeTabIconInActive,
-  SurfingTabIconActive,
-  SurfingTabIconInActive,
-  HulaTabIconInActive,
-  VulcanoTabIconInActive,
-} from '../assets';
 import COLORS from '../theme/colors';
+import HomeTabActive from '../assets/svgs/HomeTabActive';
+import HomeTabInActive from '../assets/svgs/HomeTabInActive';
+import SurfingTabActive from '../assets/svgs/SurfingTabActive';
+import SurfingTabInActive from '../assets/svgs/SurfingTabInActive';
+import HulaTabActive from '../assets/svgs/HulaTabActive';
+import HulaTabInActive from '../assets/svgs/HulaTabInActive';
+import VulcanoTabActive from '../assets/svgs/VulcanoesTabActive';
+import VulcanoesTabInActive from '../assets/svgs/VulcanoesTabInActive';
 
 const getIcon = (routeName: string, isFocused: boolean) => {
   switch (routeName) {
     case 'Home':
-      return isFocused ? HomeTabIconActive : HomeTabIconInActive;
+      return isFocused ? <HomeTabActive /> : <HomeTabInActive />;
     case 'Surfing':
-      return isFocused ? SurfingTabIconActive : SurfingTabIconInActive;
+      return isFocused ? <SurfingTabActive /> : <SurfingTabInActive />;
     case 'Hula':
-      return HulaTabIconInActive;
+      return isFocused ? <HulaTabActive /> : <HulaTabInActive />;
     case 'Vulcano':
-      return VulcanoTabIconInActive;
+      return isFocused ? <VulcanoTabActive /> : <VulcanoesTabInActive />;
     default:
-      return HomeTabIconActive;
+      return isFocused ? <SurfingTabActive /> : <SurfingTabInActive />;
   }
 };
 
@@ -73,19 +72,14 @@ const BottomTabBarItem = ({
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={{
-              flex: 1,
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: 4,
-              padding: 8,
-              borderBottomWidth: isFocused ? 2 : 0,
-              borderBottomColor: isFocused ? COLORS.primary : 'transparent',
-            }}>
-            <Image
-              style={{width: 24, height: 24, resizeMode: 'contain'}}
-              source={getIcon(route.name, isFocused)}
-            />
+            style={[
+              styles.tabBarItem,
+              {
+                borderBottomWidth: isFocused ? 4 : 0,
+                borderBottomColor: isFocused ? COLORS.primary : 'transparent',
+              },
+            ]}>
+            {getIcon(route.name, isFocused)}
             <Text
               style={{
                 color: isFocused ? COLORS.primary : 'black',
@@ -102,5 +96,14 @@ const BottomTabBarItem = ({
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  tabBarItem: {
+    flex: 1,
+    padding: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default BottomTabBarItem;

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     flex: 0.5,
     padding: 16,
     gap: 16,
-    justifyContent: 'space-between',
+    flexGrow: 1,
   },
   title: {
     fontSize: 24,
@@ -58,25 +58,21 @@ const styles = StyleSheet.create({
 });
 
 const HighlightCard = ({
-  key,
   title,
   description,
-  imageUrl,
+  image,
 }: {
-  key: string;
   title: string;
   description: string;
-  imageUrl: string;
+  image: number;
 }) => {
   const {screenSize} = useDimensions();
   const eightyPercentWidth = screenSize.width * 0.8;
   return (
-    <View key={key} style={[styles.cardContainer, {width: eightyPercentWidth}]}>
-      <View style={{flex: 0.5}}>
-        <Image source={{uri: imageUrl}} style={styles.image} />
-      </View>
+    <View style={[styles.cardContainer, {width: eightyPercentWidth}]}>
+      <Image source={image} style={styles.image} />
       <View style={styles.contentContainer}>
-        <View style={{gap: 16}}>
+        <View style={{gap: 16, flex: 0.5}}>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.description}>{description}</Text>
         </View>

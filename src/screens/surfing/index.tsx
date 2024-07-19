@@ -8,15 +8,70 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
-import HighlightCard from '../../components/common/HighlightCard';
+
 import {PrimaryButton} from '../../components/button';
 import COLORS from '../../theme/colors';
-import Outlined from '../../components/button/Outlined';
 
-const SURFING_HAWAII_URL =
-  'https://images.pexels.com/photos/4319778/pexels-photo-4319778.jpeg?auto=compress&cs=tinysrgb&w=600';
+import {SURFING, HONOLULU, MAUI, KAUAI} from '../../assets';
+import TripGuideCard from '../../components/common/TripGuideCard';
 
 const styles = StyleSheet.create({
+  textBodyDescription: {
+    fontFamily: 'IBMPlexMono-Regular',
+    fontSize: 14,
+    color: 'black',
+  },
+  primaryButton: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: 16,
+  },
+
+  topSpotCardImage: {
+    width: 160,
+    height: '100%',
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 8,
+  },
+  topSpotCardTitle: {
+    fontFamily: 'IBMPlexMono-Bold',
+    marginLeft: 16,
+    color: COLORS.primary,
+  },
+  topSpotCardView: {
+    width: '100%',
+    borderRadius: 8,
+    backgroundColor: 'white',
+    shadowColor: COLORS.primary,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    height: 70,
+    elevation: 5,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  topSpotSVContentContainer: {
+    gap: 16,
+    padding: 16,
+  },
+  topSpotsContainer: {
+    backgroundColor: 'white',
+    paddingTop: 16,
+  },
+  textBody: {
+    padding: 16,
+    backgroundColor: 'white',
+  },
+  svContentContainerStyle: {
+    paddingBottom: 60,
+  },
   container: {
     flex: 1,
     backgroundColor: 'white',
@@ -27,8 +82,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 36,
-    fontStyle: 'italic',
-    fontFamily: 'IBMPlexMono-Bold',
+
+    fontFamily: 'IBMPlexMono-BoldItalic',
+    color: 'black',
   },
   backgroundImage: {
     height: 450,
@@ -62,6 +118,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     paddingHorizontal: 16,
     fontFamily: 'IBMPlexMono-Bold',
+    color: 'black',
   },
   activitiesContainer: {
     paddingTop: 16,
@@ -70,6 +127,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     paddingHorizontal: 16,
     fontFamily: 'IBMPlexMono-Bold',
+    color: 'black',
   },
   activityButton: {
     padding: 16,
@@ -88,86 +146,52 @@ const Home = () => {
       </View>
       <ScrollView
         style={{backgroundColor: COLORS.primarySurface}}
-        contentContainerStyle={{
-          // gap: 16,
-          paddingBottom: 60,
-        }}>
+        contentContainerStyle={styles.svContentContainerStyle}
+        showsVerticalScrollIndicator={false}>
         <View style={{backgroundColor: 'white'}}>
-          <ImageBackground
-            source={{
-              uri: SURFING_HAWAII_URL,
-            }}
-            style={styles.backgroundImage}>
+          <ImageBackground source={SURFING} style={styles.backgroundImage}>
             <Text style={styles.welcomeText}>Surfing</Text>
           </ImageBackground>
         </View>
-        <View style={{padding: 16, backgroundColor: 'white'}}>
-          <Text style={{fontFamily: 'IBMPlexMono-Regular', fontSize: 14}}>
+        <View style={styles.textBody}>
+          <Text style={styles.textBodyDescription}>
             Hawaii is the capital of modern surfing. This group of Pacific
             islands gets swell from all directions, so there are plenty of
             pristine surf spots for all.
           </Text>
         </View>
-        <View style={{backgroundColor: 'white', paddingTop: 16}}>
+        <View style={styles.topSpotsContainer}>
           <Text style={styles.highlightsTitle}>Top Spots</Text>
 
           <ScrollView
-            contentContainerStyle={{gap: 16, padding: 16}}
+            contentContainerStyle={styles.topSpotSVContentContainer}
             showsHorizontalScrollIndicator={false}>
             {[
               {
                 key: 1,
                 title: 'Maui',
-                description: 'Best Hawaiian island for surfing',
+
+                image: MAUI,
               },
               {
                 key: 2,
                 title: 'Kauai',
-                description: 'Try it yourself',
+
+                image: KAUAI,
               },
               {
-                key: 2,
+                key: 3,
                 title: 'Honolulu',
-                description: 'Volcanic condition can change at any time.',
+
+                image: HONOLULU,
               },
-            ].map(({key, title, description}, index) => {
+            ].map(({key, title, image}, index) => {
               return (
-                <TouchableOpacity
-                  style={{
-                    width: '100%',
-                    borderRadius: 8,
-                    backgroundColor: 'white',
-                    shadowColor: COLORS.primary,
-                    shadowOffset: {
-                      width: 0,
-                      height: 2,
-                    },
-                    shadowOpacity: 0.25,
-                    shadowRadius: 3.84,
-                    elevation: 5,
-                    justifyContent: 'space-between',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    height: 70,
-                  }}>
-                  <Text
-                    style={{
-                      fontFamily: 'IBMPlexMono-Bold',
-                      marginLeft: 16,
-                      color: COLORS.primary,
-                    }}>{`${index + 1}. ${title}`}</Text>
-                  <Image
-                    source={{
-                      uri: 'https://images.pexels.com/photos/91224/pexels-photo-91224.jpeg?auto=compress&cs=tinysrgb&w=600',
-                    }}
-                    style={{
-                      width: 160,
-                      height: '100%',
-                      borderTopRightRadius: 8,
-                      borderBottomRightRadius: 8,
-                      resizeMode: 'center',
-                    }}
-                  />
+                <TouchableOpacity key={key} style={styles.topSpotCardView}>
+                  <Text style={styles.topSpotCardTitle}>{`${
+                    index + 1
+                  }. ${title}`}</Text>
+                  <Image source={image} style={styles.topSpotCardImage} />
                 </TouchableOpacity>
               );
             })}
@@ -177,54 +201,13 @@ const Home = () => {
             <View style={styles.activitiesContainer}>
               <Text style={styles.activitiesTitle}>Travel Guide</Text>
               <View style={{gap: 8, padding: 16}}>
-                <TouchableOpacity
-                  style={{
-                    padding: 16,
-                    backgroundColor: 'white',
-                    borderRadius: 8,
-                    gap: 16,
-                  }}>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                    }}>
-                    <View style={{gap: 16}}>
-                      <Text
-                        style={{fontFamily: 'IBMPlexMono-Bold', fontSize: 24}}>
-                        Hadwin Malone
-                      </Text>
-                      <Text
-                        style={{
-                          fontFamily: 'IBMPlexMono-Regular',
-                          fontSize: 18,
-                        }}>
-                        Guide Since 2012
-                      </Text>
-                    </View>
-                    <Image
-                      source={{
-                        uri: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=600',
-                      }}
-                      style={{height: 100, width: 100, borderRadius: 64}}
-                    />
-                  </View>
-                  <Outlined style={{alignSelf: 'flex-start'}}>Contact</Outlined>
-                </TouchableOpacity>
+                <TripGuideCard />
               </View>
             </View>
           </View>
         </View>
       </ScrollView>
-      <View
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          padding: 16,
-        }}>
+      <View style={styles.primaryButton}>
         <PrimaryButton>Book a trip</PrimaryButton>
       </View>
     </View>

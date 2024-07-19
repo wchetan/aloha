@@ -16,6 +16,7 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import RootNavigation from './src/navigation/RootNavigation';
+import COLORS from './src/theme/colors';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -28,7 +29,7 @@ function App(): React.JSX.Element {
     <SafeAreaView style={{flex: 1}}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+        backgroundColor={COLORS.primarySurface}
       />
       <RootNavigation />
     </SafeAreaView>
